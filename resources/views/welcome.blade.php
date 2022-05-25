@@ -19,8 +19,11 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+
+    <link rel="stylesheet" href="{{ mix('/css/doc-template.min.css') }}" />
     </head>
     <body class="antialiased">
         Hello world
+        <script src="{{ mix('/js/app.min.js') }}"></script>
     </body>
 </html>
