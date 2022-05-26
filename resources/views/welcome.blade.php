@@ -38,39 +38,8 @@
         <div class="content-logo">
             <!--<img  src="images/logo.png" />-->
         </div>
-        <div class="content-menu">
-            <ul>
-                <li class="scroll-to-link active" data-target="introduccion">
-                    <a>Introducción</a>
-                </li>
-                <hr>
-                <li class="scroll-to-link" data-target="registrar-cliente">
-                    <a>Registrar Cliente</a>
-                </li>
-                <li class="scroll-to-link" data-target="registrar-orden">
-                    <a>Registrar Orden</a>
-                </li>
 
-                <hr>
-                <li class="scroll-to-link" data-target="diccionario-errores">
-                    <a>Diccionario de errores</a>
-                </li>
-                <hr>
-                <li class="scroll-to-link">
-                    <a class="nav-link" href="#"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        style="text-decoration: none">Cerrar sesion
-                    </a>
-                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                        @if (config('adminlte.logout_method'))
-                            {{ method_field(config('adminlte.logout_method')) }}
-                        @endif
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-
-            </ul>
-        </div>
+        @livewire('documentation-menu')
     </div>
     <div class="content-page">
         <div class="content-code"></div>

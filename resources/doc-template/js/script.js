@@ -20,22 +20,6 @@ $(document).ready(function(){
         });
     }
     
-    function onScroll(){
-        var scroll = $(window).scrollTop(); 
-        for (var i = 0; i < elements.length; i++) {
-            var the_section = elements[i];
-            if(scroll <= the_section.max_height){
-                $(".content-menu ul li").removeClass('active');
-                $( ".content-menu ul li[data-target='"+the_section.id+"']" ).addClass('active');   
-                break;
-            }
-        }
-        if(scroll + $(window).height() == $(document).height()) { // end of scroll, last element
-            $(".content-menu ul li").removeClass('active');
-            $( ".content-menu ul li:last-child" ).addClass('active');   
-        }
-    }
-
     calculElements();
     $(window).resize(function(e){
         e.preventDefault(); 
@@ -44,6 +28,5 @@ $(document).ready(function(){
     
     $(window).on('scroll', function(e) {
         e.preventDefault();
-        onScroll();
     });
 });
