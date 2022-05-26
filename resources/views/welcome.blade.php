@@ -186,26 +186,26 @@ https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/api/
 DATOS A ENVIAR
 <br>
                 <code class="json">
-        Respuesta Success:
-        {
-          "success": true,
-          "customer_id": 1,
-          "action": "CREATE"
-        }
-        {
-          "success": true,
-          "customer_id": 2,
-          "action": "UPDATE"
-        }
-        
-        Respuesta Error:
-        {
-          "success": false,
-          "error" : {
-            "code": 12,
-            "message" : "Campo edad invalido, ingresar un número"
-          }
-        }
+Respuesta Success:
+{
+    "success": true,
+    "customer_id": 1,
+    "action": "CREATE"
+}
+{
+    "success": true,
+    "customer_id": 2,
+    "action": "UPDATE"
+}
+
+Respuesta Error:
+{
+    "success": false,
+    "error" : {
+    "code": 12,
+    "message" : "Campo edad invalido, ingresar un número"
+    }
+}
         
                 </code>
             </pre>
