@@ -2,16 +2,16 @@
 	display:block;
 	overflow-x:auto;
 	padding:0.5em;
-	background:#1E2224;
+	background:#84C4FF;
 }
 .hljs {
-	color:#fff;
+	color:#856514;
 }
 .hljs-strong,.hljs-emphasis {
-	color:#a8a8a2
+	color:#E63022
 }
 .hljs-bullet,.hljs-quote,.hljs-link,.hljs-number,.hljs-regexp,.hljs-literal {
-	color:#6896ba
+	color:#008000
 }
 .hljs-code,.hljs-selector-class {
 	color:#a6e22e
@@ -26,7 +26,7 @@
 	color:#b9b9b9
 }
 .hljs-string {
-	color:#e6db74
+	color:#22313F;
 }
 .hljs-subst,.hljs-type,.hljs-built_in,.hljs-builtin-name,.hljs-symbol,.hljs-selector-id,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-template-tag,.hljs-template-variable,.hljs-addition {
 	color:#e0c46c

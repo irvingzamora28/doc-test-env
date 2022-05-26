@@ -87,8 +87,7 @@ p, .content ul, .content ol{
     clear: both;
     font-family: 'Roboto Condensed', sans-serif;
 }
-code,
-pre{
+code{
     font-family: 'Source Code Pro', monospace;
 }
 .higlighted{
@@ -108,7 +107,7 @@ pre{
     bottom: 0;
     width: 300px;
     box-sizing: border-box;
-    background-color: #1E2224;
+    background-color: #BEE0FF;
     overflow-x: hidden;
     font-size: 13px;
 }
@@ -184,8 +183,8 @@ pre{
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: #1E2224;
-    border-color: #1E2224;
+    background-color: #BEE0FF;
+    border-color: #BEE0FF;
 }
 .content {
     position: relative;
@@ -242,9 +241,9 @@ pre{
 }
 .content pre,
 .content blockquote {
-    background-color: #1E2224;
-    border-color: #1E2224;
-    color: #fff;
+    background-color: #BEE0FF;
+    border-color: #BEE0FF;
+    color: rgb(22, 22, 22);
     padding: 0 28px 2em;
     margin: 0;
     width: 50%;
@@ -263,7 +262,7 @@ pre{
     margin-top: 0;
 }
 .content pre code{
-    margin-top: -2em;
+    margin-top: -3em;
 }
 .content table {
     font-size: 0.825em;
@@ -315,7 +314,7 @@ body.one-content-column-version .content-page .content pre {
     max-width: 100%;
 }
 body.one-content-column-version .content-page {
-    background-color: #1E2224;
+    background-color: #BEE0FF;
 }
 body.one-content-column-version .content h1:first-child,
 body.one-content-column-version .content h2,
