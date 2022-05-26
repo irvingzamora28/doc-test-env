@@ -30,6 +30,7 @@
     </style>
 
     <link rel="stylesheet" href="{{ mix('/css/doc-template.min.css') }}" />
+    @livewireStyles
 </head>
 
 <body>
@@ -226,6 +227,7 @@ Respuesta Error:
             </div>
         </div>
         <script src="{{ mix('/js/app.min.js') }}"></script>
+        @livewireScripts
 </body>
 
 </html>
