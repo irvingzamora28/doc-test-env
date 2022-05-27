@@ -6,10 +6,12 @@ use Livewire\Component;
 
 class DocumentationMenu extends Component
 {
-    public $menu = [
-        ["target" => "introduccion", "label" => "Introducción", "active" => true],
-        ["target" => "registrar-cliente", "label" => "Registrar Cliente", "active" => false]
-    ];
+    public $menu = [];
+
+    public function mount(array $menu)
+    {
+        $this->menu = $menu;
+    }
 
     protected $listeners = ["active"    => "setActive"];
 

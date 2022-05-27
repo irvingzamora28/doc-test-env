@@ -38,87 +38,21 @@
         <div class="content-logo">
             <!--<img  src="images/logo.png" />-->
         </div>
-
-        @livewire('documentation-menu')
+        @livewire('documentation-menu', ['menu' => $menu])
     </div>
     <div class="content-page">
         <div class="content-code"></div>
         <div class="content">
-            <div class="overflow-hidden content-section" id="content-introduccion">
-                <h2 id="introduccion">Introducción</h2>
-                <pre>
-                    <code class="json">
-Base URL
 
-https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/api/
-
-                    </code>
-                        </pre>
-                <p>
-                    Api Jelou Mom, permite a las marcas una conexión directa con la plataforma de ventas, mediante una
-                    serie de pasos:
-                <ul>
-                    <li>
-                        Creación de la marca en el dashboard de Jelou:
-                        <ul>
-                            <li>
-                                <p class="introducction">
-                                    Definir si la marca requiere verificación de número de teléfono y solicitar
-                                    contraseña al usuario.
-                                </p>
-                            </li>
-                            <li>
-                                <p class="introducction">
-                                    Creación de token para la conexión con el api de la marca.
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Agregar urls de los webhook o servicios para conectarse con la marca::
-                        <ul>
-                            <li>
-                                <p class="introducction">
-                                    Enviar mensaje con el código de verificación de usuario.
-                                </p>
-                            </li>
-                            <li>
-                                <p class="introducction">
-                                    Registrar un cliente.
-                                </p>
-                            </li>
-                            <li>
-                                <p class="introducction">
-                                    Registrar una venta.
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        Configuración de campos personalizados para la marca:
-                        <ul>
-                            <li>
-                                <p class="introducction">
-                                    La marca deberá entregar un documento donde debe especificar el nombre de los campos
-                                    y el tipo, de igual manera las validaciones respectivas.
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                </p>
-                <p>
-                    Todos los request contrendan en el encabezado Authorization: Bearer 2: EL TOKEN A UTILIZAR SE LE
-                    ASIGNARA A LA MARCA
-                </p>
-            </div>
+            @foreach ($menu as $item)
+                @livewire('documentation-entry', ['entry' => $item['entry']])
+            @endforeach
 
             <div class="overflow-hidden content-section" id="content-registrar-cliente">
                 <h2 id="registrar-cliente">Registrar Cliente</h2>
                 # Body
                 POST https://xxx/register-customer \
-                <pre><code class="json">
+                <pre class="code-definition"><code class="json">
 {
     "dni": "1234567890",
     "name": "Pedro",
@@ -152,7 +86,7 @@ https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/api/
                     <code class="higlighted">https://xxx/register-customer</code>
                 </p>
                 <br>
-                <pre>
+                <pre class="code-definition">
 DATOS A ENVIAR
 <br>
                 <code class="json">
@@ -190,6 +124,18 @@ Respuesta Error:
                     una venta.
                 </p>
                 <br>
+                <pre class="pre-code-example">
+
+                        <code class="json code-example">
+{
+    "success": false,
+    "error" : {
+        "code": 12,
+        "message" : "Campo edad invalido, ingresar un número"
+    }
+}
+</code>
+</pre>
                 <div class="row">
                     <input type="text" name="url_brand">
                 </div>

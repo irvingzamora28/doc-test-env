@@ -235,7 +235,20 @@ code{
 .content-page .content pre {
     max-width: 680px;
 }
-.content pre,
+.content .pre-code-example {
+    border-color: #BEE0FF;
+    color: rgb(22, 22, 22);
+    padding: 0 28px 2em;
+    margin: 0;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.code-example {
+    background: #eeeeee;
+}
+
+.content pre.code-definition,
 .content blockquote {
     background-color: #BEE0FF;
     border-color: #BEE0FF;
@@ -247,17 +260,19 @@ code{
     clear: right;
     box-sizing: border-box;
 }
-.content pre code, .content pre {
+.content pre code, .content pre, .content span code, .content span {
     font-size: 12px;
     line-height: 1.5;
 }
 .content blockquote,
 .content pre,
-.content pre code{
+.content pre code,
+.content span,
+.content span code{
     padding-top: 0;
     margin-top: 0;
 }
-.content pre code{
+.content pre code, .content span code{
     margin-top: -3em;
 }
 .content table {

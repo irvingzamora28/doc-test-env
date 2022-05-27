@@ -11,7 +11,6 @@ class DocumentationMenuItem extends Component
     public function mount(array $item)
     {
         $this->item = $item;
-
     }
     protected $listeners = ['child-event' => '$refresh'];
 
