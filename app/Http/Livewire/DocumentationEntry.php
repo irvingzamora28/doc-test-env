@@ -9,6 +9,7 @@ class DocumentationEntry extends Component
 {
 
     public $entry = [];
+    public $showEditForm = false;
 
     public function mount(array $entry)
     {
@@ -37,5 +38,10 @@ class DocumentationEntry extends Component
         $responseBody = json_decode($response->getBody(), true);
 
         // dd($responseBody);
+    }
+
+    public function toggleForm()
+    {
+        $this->showEditForm = !$this->showEditForm;
     }
 }
