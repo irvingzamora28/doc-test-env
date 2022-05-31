@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="{{ mix('/css/doc-template.min.css') }}" />
     @livewireStyles
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -136,9 +137,7 @@ Respuesta Error:
 }
 </code>
 </pre>
-                <div class="row">
-                    <input type="text" name="url_brand">
-                </div>
+               
             </div>
         </div>
         <script src="{{ mix('/js/app.min.js') }}"></script>

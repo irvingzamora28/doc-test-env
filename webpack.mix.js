@@ -36,14 +36,14 @@ mix.js("resources/js/app.js", "public/js")
     .postCss("resources/doc-template/css/highlightjs-dark.css", "public/css")
     .postCss("resources/doc-template/css/style.css", "public/css")
     .postCss("resources/css/app.css", "public/css", [
-        //
+        require("tailwindcss"),
     ])
-    // .then(() => {
-    //     del('public/css/highlightjs-dark.css');
-    //     del('public/css/style.css');
-    //     del('public/css/doc-template.css');
-    // })
-    
+// .then(() => {
+//     del('public/css/highlightjs-dark.css');
+//     del('public/css/style.css');
+//     del('public/css/doc-template.css');
+// })
+
 // .then(() => {
 //     del('public/css/highlightjs-dark.css');
 //     del('public/css/style.css');
