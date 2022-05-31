@@ -4,7 +4,7 @@
 ----------------------------------------------------------------------------------------*/
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+/* h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -14,7 +14,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, hgroup,
-menu, nav, output, ruby, section, summary,
+menu, nav, output, ruby, section, summary, */
 time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -186,7 +186,7 @@ code{
     position: relative;
     z-index: 30;
 }
-.content h1,
+/* .content h1,
 .content h2,
 .content h3,
 .content h4,
@@ -201,12 +201,12 @@ code{
     box-sizing: border-box;
     display: block;
     max-width: 680px;
-}
+} */
 .content ul,
 .content ol {
     padding: 0 44px;
 }
-.content h2,
+/* .content h2,
 .content h3,
 .content h4,
 .content h5,
@@ -217,8 +217,8 @@ code{
     color: #034c8f;
     text-transform: uppercase;
     font-family: 'Roboto Condensed', sans-serif;
-}
-.content h2{
+} */
+/* .content h2{
         font-size: 18px;
 		color: #000;
 		font-weight: 700;
@@ -230,17 +230,16 @@ code{
     font-size: 14px;
 	font-weight:700;
     margin-bottom: 0.2em;
-}
+} */
 .content-page .content p,
 .content-page .content pre {
-    max-width: 680px;
+    /* max-width: 680px; */
 }
 .content .pre-code-example {
     border-color: #BEE0FF;
     color: rgb(22, 22, 22);
-    padding: 0 28px 2em;
-    margin: 0;
-    width: 50%;
+    /* padding: 0 28px 2em;
+    width: 50%; */
     box-sizing: border-box;
 }
 
@@ -253,9 +252,9 @@ code{
     background-color: #BEE0FF;
     border-color: #BEE0FF;
     color: rgb(22, 22, 22);
-    padding: 0 28px 2em;
-    margin: 0;
-    width: 50%;
+    /* padding: 0 28px 2em; */
+    /* margin: 0; */
+    /* width: 50%; */
     float: right;
     clear: right;
     box-sizing: border-box;
@@ -270,10 +269,9 @@ code{
 .content span,
 .content span code{
     padding-top: 0;
-    margin-top: 0;
 }
 .content pre code, .content span code{
-    margin-top: -3em;
+    /* margin-top: -3em; */
 }
 .content table {
     font-size: 0.825em;
