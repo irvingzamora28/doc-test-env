@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Faker\Factory as Faker;
 
 // TODO: Al modificar cambios de datos para enviar, regresar el focus al lugar titulo "Datos a enviar" (Se pierde el lugar donde se quedo el usuario)
+// TODO: Extraer funciones comunes de DocumentationEntry
 class DocumentationController extends Controller
 {
     public function home(Request $request)

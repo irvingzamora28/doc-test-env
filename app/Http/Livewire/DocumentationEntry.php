@@ -42,9 +42,9 @@ class DocumentationEntry extends Component
         $client = new Client();
         $responseBody = null;
         try {
-            
+            $data = json_decode($this->entry["data"], true);
             $response = $client->post($this->entry["url"], [
-                'json' => $this->entry["data"],
+                'json' => $data,
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Authorization' => 'Bearer 1|tPLBFvulLd2Urpm1SnNdvosz6k2JViWpEKnOjbPi',
@@ -56,8 +56,17 @@ class DocumentationEntry extends Component
             $responseBody = json_decode($response->getBody(), true);
             
         } catch (RequestException $e) {
-            $this->entry["response"] = $this->formatJsonString($e->getResponse()->getBody()->getContents(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            $stringResponse = $e->getResponse()->getBody()->getContents();
+            $converted = $this->convertoToUTF8($stringResponse);
+            $this->entry["response"] = $this->formatJsonString($converted);
         }
+    }
+
+    public function convertoToUTF8($text)
+    {
+        $str = str_replace('\u','u',$text);
+        $replacedStr = preg_replace('/u([\da-fA-F]{4})/', '&#x\1;', $str);
+        return html_entity_decode($replacedStr);
     }
 
     public function saveFormInputs()
