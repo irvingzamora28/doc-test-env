@@ -2,7 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use Livewire\Component;
 
 class DocumentationEntry extends Component
@@ -36,20 +40,24 @@ class DocumentationEntry extends Component
     public function sendHttp()
     {
         $client = new Client();
-        
-        $response = $client->get($this->entry["url"], [
-            // 'json' => $data,
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer '.config('jelou.api_chat_bearer_token'),
-            ],
-            'timeout' => 25, // Response timeout (sec)
-            'connect_timeout' => 25, // Connection timeout (sec)
-            // 'verify' => config('jelou.guzzle_ssl_verify'),
-        ]);
-        $responseBody = json_decode($response->getBody(), true);
-
-        // dd($responseBody);
+        $responseBody = null;
+        try {
+            
+            $response = $client->post($this->entry["url"], [
+                'json' => $this->entry["data"],
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer 1|tPLBFvulLd2Urpm1SnNdvosz6k2JViWpEKnOjbPi',
+                ],
+                'timeout' => 25, // Response timeout (sec)
+                'connect_timeout' => 25, // Connection timeout (sec)
+                // 'verify' => config('jelou.guzzle_ssl_verify'),
+            ]);
+            $responseBody = json_decode($response->getBody(), true);
+            
+        } catch (RequestException $e) {
+            $this->entry["response"] = $this->formatJsonString($e->getResponse()->getBody()->getContents(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        }
     }
 
     public function saveFormInputs()

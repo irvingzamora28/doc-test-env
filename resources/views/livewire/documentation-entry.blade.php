@@ -54,7 +54,7 @@
 
 <pre class="pre-code-example flex w-full">
 <code class="json code-example w-full hljs">
-{{ $entry['code'] }}
+{{ $entry['data'] }}
 </code>
 </pre>
                     &nbsp;&nbsp;
@@ -65,7 +65,7 @@
 
 <pre class="pre-code-example w-full flex">
 <code class="json code-example w-full hljs">
-{{ $entry['code'] }}
+{{ $entry['response'] }}
 </code>
 </pre>
                     &nbsp;&nbsp;
