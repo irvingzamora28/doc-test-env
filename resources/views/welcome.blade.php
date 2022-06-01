@@ -35,7 +35,28 @@
 </head>
 
 <body>
-    <div class="left-menu">
+
+    <header class="text-gray-600 body-font sticky top-0 z-50 bg-slate-50">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                <span class="ml-3 text-xl">LOGO</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            </nav>
+            <button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Salir
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="left-menu mt-4 bg-blue-300">
         <div class="content-logo">
             <!--<img  src="images/logo.png" />-->
         </div>
@@ -47,97 +68,6 @@
             @foreach ($menu as $item)
                 @livewire('documentation-entry', ['entry' => $item['entry']])
             @endforeach
-
-            <div class="overflow-hidden content-section" id="content-registrar-cliente">
-                <h2 id="registrar-cliente">Registrar Cliente</h2>
-                # Body
-                POST https://xxx/register-customer \
-                <pre class="code-definition"><code class="json">
-{
-    "dni": "1234567890",
-    "name": "Pedro",
-    "last_name": "Perez",
-    "password": {
-        "value": "832ruhasd893",
-        "encrypted": true,
-        "type": "base64"
-    },
-    "email": {
-        "value": "pedroperez@gmail.com".
-        "verified": true,
-    },
-    "phone": {
-        "value": 19874894489,
-        "verified": true,
-    },
-    "profile_image": {
-        "type": "jpg",
-        "url": "https://www.$"%·"$&%/",
-        "timelife": 2342,
-        "date_create": "2022-05-03 10:00:00"
-        "timezone": "UTC"
-    },
-    "categories": [2,4],
-}
-                </code>
-            </pre>
-                <p>
-                    Petición POST:<br>
-                    <code class="higlighted">https://xxx/register-customer</code>
-                </p>
-                <br>
-                <pre class="code-definition">
-DATOS A ENVIAR
-<br>
-                <code class="json">
-Respuesta Success:
-{
-    "success": true,
-    "customer_id": 1,
-    "action": "CREATE"
-}
-{
-    "success": true,
-    "customer_id": 2,
-    "action": "UPDATE"
-}
-
-Respuesta Error:
-{
-    "success": false,
-    "error" : {
-    "code": 12,
-    "message" : "Campo edad invalido, ingresar un número"
-    }
-}
-        
-                </code>
-            </pre>
-                <h4>DEFINICIÓN</h4>
-                <p>
-                    La marca debere especificar los campos que se requieren para el registro de usuario.
-                    Jelou por defecto tiene una lista de campos predeterminados, de igual manera, la marca puede añadir
-                    campos personalizados, solo debe proporcionar el nombre del campo y las validaciones. <br>
-                    Al enviarse los datos de un cliente, queda a criterio de la marca como verificar si el cliente ya se
-                    encuentra registrado en su base de datos y la actualización de los datos, lo exigido de parte de
-                    jelou es retornar el ID del usuario registrado, el cual posteriormente sera utilizado para procesar
-                    una venta.
-                </p>
-                <br>
-                <pre class="pre-code-example">
-
-                        <code class="json code-example">
-{
-    "success": false,
-    "error" : {
-        "code": 12,
-        "message" : "Campo edad invalido, ingresar un número"
-    }
-}
-</code>
-</pre>
-
-            </div>
         </div>
         <script src="{{ mix('/js/app.min.js') }}"></script>
         @livewireScripts

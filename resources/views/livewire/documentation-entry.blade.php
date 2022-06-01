@@ -75,7 +75,7 @@
                 
             </div>
 
-            <div class="p-12 md:w-1/2 flex flex-col">
+            <div class="p-12 md:w-1/2 flex flex-col bg-blue-300">
 
                 <pre class="code-definition mt-8">
                 <code class="json hljs">
