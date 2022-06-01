@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="flex w-full py-2 justify-end">
-                        <button type="button" wire:click="sendHttp" class="py-2 px-2  bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-1/4 float-right transition ease-in duration-200 text-center text-base shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "> Enviar Prueba
+                        <button type="button" wire:click="sendHttp" class="py-2 px-2  bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-1/3 float-right transition ease-in duration-200 text-center text-base shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "> Enviar Prueba
                         </button>
                     </div>
                     <div class="flex py-2">
@@ -43,7 +43,7 @@
                                     @endforeach
                                        
                                   <div class="p-2 w-full">
-                                    <button type="button" class="py-2 px-2  bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-1/4 float-right transition ease-in duration-200 text-center text-base shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"> Guardar
+                                    <button type="button" wire:click='saveFormInputs' class="py-2 px-2  bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-1/4 float-right transition ease-in duration-200 text-center text-base shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"> Guardar
                                     </button>
                                   </div>
                                 </div>
@@ -53,7 +53,7 @@
                     </div>
 
 <pre class="pre-code-example flex w-full">
-<code class="json code-example w-full">
+<code class="json code-example w-full hljs">
 {{ $entry['code'] }}
 </code>
 </pre>
@@ -64,7 +64,7 @@
                     </div>
 
 <pre class="pre-code-example w-full flex">
-<code class="json code-example w-full">
+<code class="json code-example w-full hljs">
 {{ $entry['code'] }}
 </code>
 </pre>

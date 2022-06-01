@@ -6,6 +6,7 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 use Faker\Factory as Faker;
 
+// TODO: Al modificar cambios de datos para enviar, regresar el focus al lugar titulo "Datos a enviar" (Se pierde el lugar donde se quedo el usuario)
 class DocumentationController extends Controller
 {
     public function home(Request $request)
@@ -15,7 +16,6 @@ class DocumentationController extends Controller
         $brand = Brand::where("id_brand", "6")->where("status", "A")->with("fieldsBrand", function ($query) {
             $query->where("status", "A")->select(["id_field_brand", "id_brand", "label", "name", "type", "field_type", "rules", "additional_information", "status"]);
         })->first(["id_brand", "name", "dynamic_fields", "status"]);
-        // dd($brand->fieldsBrand);
         
         $code = [];
         foreach ($brand->fieldsBrand as $key => $field) {
@@ -24,7 +24,7 @@ class DocumentationController extends Controller
             if ($val != "") {
                 $code[$field["name"]] = $faker->{$val};
             } else {
-                $code[$field["name"]] = "value";
+                $code[$field["name"]] = "valor default";
             }
         }
         $menu = [
