@@ -38,6 +38,9 @@ $(document).ready(function () {
   $(window).on('scroll', function (e) {
     e.preventDefault();
   });
+  window.addEventListener('send-entry-error', function (event) {
+    alert(event.detail.error);
+  });
 });
 
 /***/ }),

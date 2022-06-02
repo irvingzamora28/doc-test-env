@@ -29,4 +29,8 @@ $(document).ready(function(){
     $(window).on('scroll', function(e) {
         e.preventDefault();
     });
+
+    window.addEventListener('send-entry-error', event => {
+        alert(event.detail.error);
+    });
 });

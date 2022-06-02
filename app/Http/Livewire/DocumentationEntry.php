@@ -18,13 +18,14 @@ class DocumentationEntry extends Component
     // se guardan en $entry['code'] hasta que se presiona el boton guardar
     public $tempInputs = [];
 
+    public $error = "";
+
     protected $listeners = ['inputUpdated' => 'updateInput'];
- 
+
     public function updateInput($key, $value)
     {
         $this->entry["inputs"][$key] = $value;
         $this->tempInputs = $this->formatJsonString(json_encode($this->entry["inputs"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-
     }
 
     public function mount(array $entry)
@@ -54,17 +55,20 @@ class DocumentationEntry extends Component
                 // 'verify' => config('jelou.guzzle_ssl_verify'),
             ]);
             $responseBody = json_decode($response->getBody(), true);
-            
         } catch (RequestException $e) {
             $stringResponse = $e->getResponse()->getBody()->getContents();
             $converted = $this->convertoToUTF8($stringResponse);
             $this->entry["response"] = $this->formatJsonString($converted);
+        } catch (Exception $ex) {
+            $this->error = $ex->getMessage();
+            $this->dispatchBrowserEvent('send-entry-error', ['error' => $this->error]);
+            // $this->emitSelf('sendEntryError', $this->error);
         }
     }
 
     public function convertoToUTF8($text)
     {
-        $str = str_replace('\u','u',$text);
+        $str = str_replace('\u', 'u', $text);
         $replacedStr = preg_replace('/u([\da-fA-F]{4})/', '&#x\1;', $str);
         return html_entity_decode($replacedStr);
     }
