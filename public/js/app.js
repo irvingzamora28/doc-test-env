@@ -57,6 +57,26 @@ $(document).ready(function () {
 
     }).showToast();
   });
+  window.addEventListener('save-brand-config', function (event) {
+    toastify_js__WEBPACK_IMPORTED_MODULE_0___default()({
+      text: event.detail.message,
+      duration: 3000,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      // `top` or `bottom`
+      position: "right",
+      // `left`, `center` or `right`
+      stopOnFocus: true,
+      // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(180deg, rgba(0,208,101,1) 98%, rgba(109,255,104,1) 100%)"
+      },
+      onClick: function onClick() {} // Callback after click
+
+    }).showToast();
+  });
 });
 
 /***/ }),

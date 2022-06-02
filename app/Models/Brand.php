@@ -41,4 +41,12 @@ class Brand extends Model
     {
         return $this->hasMany(FieldsBrand::class, "id_brand");
     }
+
+    /**
+     * Get the config of a brand
+     */
+    public function confs()
+    {
+        return $this->hasOne(ConfBrands::class, 'id_brand');
+    }
 }
