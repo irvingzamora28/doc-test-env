@@ -24,13 +24,13 @@ class DocumentationController extends Controller
             $val = key_exists("faker", $addInformation ?? []) ? $addInformation["faker"] : "";
             if ($val != "") {
                 $value = $faker->{$val};
-                $data[$field["name"]] = $value; 
+                $data[$field["name"]] = $value;
                 $inputs[$field["name"]] = [
                     "value" => $field["field_type"] == 'input' ? $value : $field["value"],
                     "field_type" => $field["field_type"]
                 ];
             } else {
-                $data[$field["name"]] = $field["field_type"] == 'input' ? "default" : json_decode($field["value"], true) [0]["value"] ; 
+                $data[$field["name"]] = $field["field_type"] == 'input' ? "default" : json_decode($field["value"], true)[0]["value"];
                 $inputs[$field["name"]] = [
                     "value" => $field["field_type"] == 'input' ? "default" : $field["value"],
                     "field_type" => $field["field_type"]
@@ -61,8 +61,8 @@ class DocumentationController extends Controller
                     "entry"   =>  [
                         "title" =>  "Registrar Venta",
                         "description" => "La marca debere especificar los campos que se requieren para el registro de usuario. Jelou por defecto tiene una lista de campos predeterminados, de igual manera, la marca puede añadir campos personalizados, solo debe proporcionar el nombre del campo y las validaciones.
-                    Al enviarse los datos de un cliente, queda a criterio de la marca como verificar si el cliente ya se encuentra registrado en su base de datos y la actualización de los datos, lo exigido de parte de jelou es retornar el ID del usuario registrado, el cual posteriormente sera utilizado para procesar una venta.",
-                        "url"   => "https://reqres.in/api/users",
+                        Al enviarse los datos de un cliente, queda a criterio de la marca como verificar si el cliente ya se encuentra registrado en su base de datos y la actualización de los datos, lo exigido de parte de jelou es retornar el ID del usuario registrado, el cual posteriormente sera utilizado para procesar una venta.",
+                        "url"   => "http://127.0.0.1:8001/api/orders/store",
                         "inputs_data"   => $data,
                         "inputs_info"   => $inputs,
                         "data"  => $this->formatJsonString(json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)),
