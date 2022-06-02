@@ -1,7 +1,7 @@
-<section class="text-gray-600 body-font overflow-hidden" id="{{$target}}" {{$active ? 'flex' : 'hidden'}}>
+<section class="text-gray-600 body-font " id="{{$target}}" {{$active ? 'flex' : 'hidden'}}>
     <div class="container px-2 py-2 mx-auto">
         <div class="flex flex-wrap -m-12">
-            <div class="pl-12 pr-2 md:w-1/2 flex flex-col items-center self-center">
+            <div class="pl-12 pr-2 md:w-1/2 flex flex-col items-center self-center" style="top: -480px; position: relative;"">
                 <h2 class="sm:text-2xl text-xl title-font self-start font-medium text-gray-800 mt-16 mb-4">{{ $entry['title'] }}</h2>
                 <p class="leading-relaxed mb-8">{!! nl2br(e($entry['description'])) !!} </p>
                 <div
@@ -79,12 +79,70 @@
             <div class="p-12 md:w-1/2 flex flex-col bg-blue-300">
 
                 <pre class="code-definition mt-8">
-                <code class="json hljs">
-Base URL
+<h5 class="title-font text-lg font-medium text-gray-900 uppercase">Ejemplo datos a enviar</h5>
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">REGISTRAR UN CLIENTE</h5>
+Los datos necesarios para registrar a un cliente, son los siguientes:
+<code class="json hljs">
+{{ $exampleDataSend }}
+</code>
 
-https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/api/
-        
-                </code>
+<h5 class="title-font text-lg font-medium text-gray-900 uppercase">Respuestas exitosas</h5>
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">REGISTRAR UN CLIENTE</h5>
+Esta respuesta se genera al crear un cliente de manera exitosa
+<code class="json hljs">
+{
+    "success": true,
+    "customer_id": 1,
+    "reg_date": "2022-05-06T18:53:47.000000Z",
+    "action": "CREATE"
+}
+</code>
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">MODIFICAR DATOS DE UN CLIENTE</h5>
+Esta respuesta se genera al modificar un cliente de 
+manera exitosa (Los datos del cliente son modificados
+cuando se intenta registrar un cliente que ya existe)
+<code class="json hljs">
+{
+    "success": true,
+    "customer_id": 2,
+    "reg_date": "2022-05-06T18:56:42.000000Z",
+    "action": "UPDATE"
+}
+</code>
+
+<h5 class="title-font text-lg font-medium text-gray-900 uppercase">Errores</h5>
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">ERROR DE VALIDACIÓN AL REGISTRAR UN CLIENTE</h5>
+Este error se muestra cuando existe un error de validación con los datos que fueron enviados.
+<code class="json hljs">
+{
+    "success": false,
+    "error" : {
+        "code":12,
+        "message" : "Campo edad invalido, ingresar un número"
+    }
+}
+</code>
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">REGISTRAR UN CLIENTE</h5>
+Este error se muestra cuando la ruta del api no existe.
+<code class="json hljs">
+{
+    "success": false,
+    "message": "Ruta HTTP no encontrada",
+    "errors": "",
+    "code": 50
+}
+</code>
+
+<h5 class="title-font text-md font-medium text-gray-900 uppercase">ERROR GENERAL EN EL SERVIDOR</h5>
+Este error se muestra cuando existe un error por parte del servidor.
+<code class="json hljs">
+{
+    "success": false,
+    "errors": "syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION) or const (T_CONST)",
+    "code": 90
+}
+</code>
+
             </pre>
             </div>
 
