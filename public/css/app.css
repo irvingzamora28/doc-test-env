@@ -482,6 +482,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-m-2 {
   margin: -0.5rem;
 }
+.m-0 {
+  margin: 0px;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -515,6 +518,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mr-2 {
   margin-right: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.block {
+  display: block;
 }
 .inline-block {
   display: inline-block;
@@ -620,6 +629,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-b-2 {
   border-bottom-width: 2px;
 }
+.border-solid {
+  border-style: solid;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -662,6 +674,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-contain {
   background-size: contain;
 }
+.bg-clip-padding {
+  background-clip: padding-box;
+}
 .bg-center {
   background-position: center;
 }
@@ -696,6 +711,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
 .pl-12 {
   padding-left: 3rem;
 }
@@ -729,6 +748,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-medium {
   font-weight: 500;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
@@ -832,6 +854,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
+.focus\:border-blue-600:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity));
+}
 .focus\:bg-white:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -839,6 +865,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus\:bg-blue-700:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+.focus\:text-gray-700:focus {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .focus\:shadow-lg:focus {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -915,5 +945,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:w-full {
     width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:w-96 {
+    width: 24rem;
   }
 }

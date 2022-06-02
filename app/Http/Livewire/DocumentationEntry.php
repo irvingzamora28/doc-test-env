@@ -19,7 +19,7 @@ class DocumentationEntry extends Component
     public $showEditForm = false;
     // Este arreglo temporal de inputs se utiliza para guardar los valores de la forma de editInputs, 
     // se guardan hasta que se presiona el boton guardar
-    public $tempInputs = [];
+    public $tempInputs = "";
 
     public $error = "";
 
@@ -45,6 +45,8 @@ class DocumentationEntry extends Component
         $this->entry = $entry;
         $this->target = $target;
         $this->active = $active;
+        $this->tempInputs = $entry["data"];
+
     }
 
     public function render()
