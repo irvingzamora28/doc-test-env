@@ -1,4 +1,4 @@
-<section class="text-gray-600 body-font overflow-hidden">
+<section class="text-gray-600 body-font overflow-hidden" id="{{$target}}" {{$active ? 'flex' : 'hidden'}}>
     <div class="container px-2 py-2 mx-auto">
         <div class="flex flex-wrap -m-12">
             <div class="pl-12 pr-2 md:w-1/2 flex flex-col items-center self-center">

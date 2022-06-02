@@ -20,8 +20,9 @@ class DocumentationMenu extends Component
         return view('livewire.documentation-menu');
     }
 
-    public function setActive()
+    public function setActive($target, $active)
     {
         $this->emit('child-event');
+        $this->emit('parent-active-menu-item-event', $target, $active);
     }
 }

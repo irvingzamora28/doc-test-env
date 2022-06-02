@@ -65,7 +65,7 @@ i{
 .content a:hover{
     text-decoration: underline;
 }
-.scroll-to-link{
+.menu-item{
     cursor: pointer;
 }
 p, .content ul, .content ol{

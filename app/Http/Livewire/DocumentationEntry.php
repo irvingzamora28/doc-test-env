@@ -13,6 +13,8 @@ use Livewire\Component;
 class DocumentationEntry extends Component
 {
 
+    public $target = '';
+    public $active = false;
     public $entry = [];
     public $showEditForm = false;
     // Este arreglo temporal de inputs se utiliza para guardar los valores de la forma de editInputs, 
@@ -21,7 +23,7 @@ class DocumentationEntry extends Component
 
     public $error = "";
 
-    protected $listeners = ['inputUpdated' => 'updateInput'];
+    protected $listeners = ['inputUpdated' => 'updateInput', 'parent-active-menu-item-event' => 'updateActive'];
 
     public function updateInput($key, $value)
     {
@@ -29,9 +31,20 @@ class DocumentationEntry extends Component
         $this->tempInputs = $this->formatJsonString(json_encode($this->entry["inputs"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 
-    public function mount(array $entry)
+    public function updateActive(string $target, bool $active)
+    {
+        if ($this->target == $target) {
+            $this->active = !$active;
+        } else {
+            $this->active = false;
+        }
+    }
+
+    public function mount(array $entry, string $target, bool $active)
     {
         $this->entry = $entry;
+        $this->target = $target;
+        $this->active = $active;
     }
 
     public function render()

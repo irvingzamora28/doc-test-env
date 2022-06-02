@@ -1,9 +1,9 @@
 <div class="content-menu">
     <ul>
         @foreach ($menu as $item)
-            @livewire('documentation-menu-item', ['item' => $item], key($item['target']))
+            @livewire('documentation-menu-item', ['item' => $item[array_key_first($item)]], key($item[array_key_first($item)]['target']))
         @endforeach
-        <li class="scroll-to-link">
+        <li class="menu-item">
             <a class="nav-link" href="#"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 style="text-decoration: none">Cerrar sesion

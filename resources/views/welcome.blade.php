@@ -66,7 +66,7 @@
         <div class="content-code"></div>
         <div class="content">
             @foreach ($menu as $item)
-                @livewire('documentation-entry', ['entry' => $item['entry']])
+                @livewire('documentation-entry', ['entry' => $item[array_key_first($item)]['entry'], 'target' => $item[array_key_first($item)]['target'], 'active' => $item[array_key_first($item)]['active']], key($loop->index))
             @endforeach
         </div>
         <script src="{{ mix('/js/app.min.js') }}"></script>

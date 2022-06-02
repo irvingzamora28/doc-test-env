@@ -4,13 +4,6 @@ import "toastify-js/src/toastify.css"
 $(document).ready(function(){
     var elements = [];
 
-    $(".scroll-to-link").click(function(e) { 
-        e.preventDefault(); 
-        var id = $(this).attr('data-target');
-        $('html,body').animate({scrollTop: $("#"+id).offset().top - 20});
-        return false;
-    });
-    
     function calculElements(){
         var total_height = 0;
         elements = [];
@@ -48,6 +41,5 @@ $(document).ready(function(){
             },
             onClick: function(){} // Callback after click
           }).showToast();
-        // alert(event.detail.error);
     });
 });

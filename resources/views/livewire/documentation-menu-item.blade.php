@@ -1,5 +1,5 @@
 <span>
-    <li class="scroll-to-link {{ $item['active'] ? 'active' : '' }}" wire:click='$emitUp("active")'
+    <li class="menu-item {{ $item['active'] ? 'active' : '' }}" wire:click="$emitUp('active', '{{$item['target']}}', '{{$item['active'] }}')"
         data-target='{{ $item['target'] }}'>
         <a>{{ $item['label'] }}</a>
     </li>
