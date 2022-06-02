@@ -9,11 +9,17 @@ class DocumentationEntryInput extends Component
 
     public $input = [];
     public $value = "";
+    public $fieldType = "";
+    public $multipleValue = [];
 
     public function mount(array $input)
     {
         $this->input = $input;
-        $this->value = array_values($input)[0];
+        $this->value = array_values($input)[0]["value"];
+        $this->fieldType = array_values($input)[0]["field_type"];
+        if ($this->fieldType == "radio") {
+            $this->multipleValue = json_decode(array_values($input)[0]["value"], true); 
+        }
     }
 
     public function render()

@@ -15,7 +15,7 @@ class DocumentationController extends Controller
 
         $faker = Faker::create();
         $brand = Brand::where("id_brand", "6")->where("status", "A")->with("fieldsBrand", function ($query) {
-            $query->where("status", "A")->select(["id_field_brand", "id_brand", "label", "name", "type", "field_type", "rules", "additional_information", "status"]);
+            $query->where("status", "A")->select(["id_field_brand", "id_brand", "label", "name", "type", "field_type", "value", "additional_information", "status"]);
         })->first(["id_brand", "name", "dynamic_fields", "status"]);
 
         $data = [];
@@ -23,9 +23,18 @@ class DocumentationController extends Controller
             $addInformation = json_decode($field["additional_information"], true);
             $val = key_exists("faker", $addInformation ?? []) ? $addInformation["faker"] : "";
             if ($val != "") {
-                $data[$field["name"]] = $faker->{$val};
+                $value = $faker->{$val};
+                $data[$field["name"]] = $value; 
+                $inputs[$field["name"]] = [
+                    "value" => $field["field_type"] == 'input' ? $value : $field["value"],
+                    "field_type" => $field["field_type"]
+                ];
             } else {
-                $data[$field["name"]] = "valor default";
+                $data[$field["name"]] = $field["field_type"] == 'input' ? "default" : json_decode($field["value"], true) [0]["value"] ; 
+                $inputs[$field["name"]] = [
+                    "value" => $field["field_type"] == 'input' ? "default" : $field["value"],
+                    "field_type" => $field["field_type"]
+                ];
             }
         }
         $menu = [
@@ -38,7 +47,8 @@ class DocumentationController extends Controller
                         "description" => "Esta ruta recibe los campos indicados en el ejemplo y son validados. Si el cliente no existe se crea un nuevo cliente, si este ya existe en la base de datos se modifica.
                         Se debe retornar el ID del usuario registrado, el cual posteriormente sera utilizado para procesar una venta.",
                         "url"   => "http://127.0.0.1:8001/api/customers/create_edit",
-                        "inputs"   => $data,
+                        "inputs_data"   => $data,
+                        "inputs_info"   => $inputs,
                         "data"  => $this->formatJsonString(json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)),
                         "response"  => ""
                     ]
@@ -53,7 +63,8 @@ class DocumentationController extends Controller
                         "description" => "La marca debere especificar los campos que se requieren para el registro de usuario. Jelou por defecto tiene una lista de campos predeterminados, de igual manera, la marca puede añadir campos personalizados, solo debe proporcionar el nombre del campo y las validaciones.
                     Al enviarse los datos de un cliente, queda a criterio de la marca como verificar si el cliente ya se encuentra registrado en su base de datos y la actualización de los datos, lo exigido de parte de jelou es retornar el ID del usuario registrado, el cual posteriormente sera utilizado para procesar una venta.",
                         "url"   => "https://reqres.in/api/users",
-                        "inputs"   => $data,
+                        "inputs_data"   => $data,
+                        "inputs_info"   => $inputs,
                         "data"  => $this->formatJsonString(json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)),
                         "response"  => ""
                     ]

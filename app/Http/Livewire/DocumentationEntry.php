@@ -18,7 +18,7 @@ class DocumentationEntry extends Component
     public $entry = [];
     public $showEditForm = false;
     // Este arreglo temporal de inputs se utiliza para guardar los valores de la forma de editInputs, 
-    // se guardan en $entry['code'] hasta que se presiona el boton guardar
+    // se guardan hasta que se presiona el boton guardar
     public $tempInputs = [];
 
     public $error = "";
@@ -27,8 +27,8 @@ class DocumentationEntry extends Component
 
     public function updateInput($key, $value)
     {
-        $this->entry["inputs"][$key] = $value;
-        $this->tempInputs = $this->formatJsonString(json_encode($this->entry["inputs"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        $this->entry["inputs_data"][$key] = $value;
+        $this->tempInputs = $this->formatJsonString(json_encode($this->entry["inputs_data"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 
     public function updateActive(string $target, bool $active)

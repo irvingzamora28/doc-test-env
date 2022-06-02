@@ -39,7 +39,7 @@
                             <div class="container mx-auto">
                               <div class="lg:w-full mx-auto">
                                 <div class="flex flex-wrap -m-2">
-                                    @foreach ($entry["inputs"] as $key => $input)
+                                    @foreach ($entry["inputs_info"] as $key => $input)
                                         @livewire('documentation-entry-input', ['input' => [$key => $input]], key($loop->index))
                                     @endforeach
                                        
