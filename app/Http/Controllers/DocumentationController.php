@@ -74,7 +74,7 @@ class DocumentationController extends Controller
 
         // dd($menu);
 
-        return view('welcome', ["menu" => $menu]);
+        return view('welcome', ["menu" => $menu, "showConfiguration" => false]);
     }
     /**
      * Format json schema 

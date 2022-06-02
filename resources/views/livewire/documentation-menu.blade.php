@@ -5,7 +5,7 @@
         @endforeach
 
         <span>
-            <li class="menu-item">
+            <li class="menu-item" wire:click="$emit('showConfiguration')">
 
                 <a>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24"

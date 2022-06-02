@@ -39,9 +39,11 @@
     <header class="text-gray-600 body-font sticky top-0 z-50 bg-slate-50">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
                 <span class="ml-3 text-xl">LOGO</span>
             </a>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -58,19 +60,13 @@
 
     <div class="left-menu mt-4 bg-blue-300">
         <div class="content-logo">
-            <!--<img  src="images/logo.png" />-->
         </div>
         @livewire('documentation-menu', ['menu' => $menu])
     </div>
-    <div class="content-page">
-        <div class="content-code"></div>
-        <div class="content">
-            @foreach ($menu as $item)
-                @livewire('documentation-entry', ['entry' => $item[array_key_first($item)]['entry'], 'target' => $item[array_key_first($item)]['target'], 'active' => $item[array_key_first($item)]['active']], key($loop->index))
-            @endforeach
-        </div>
-        <script src="{{ mix('/js/app.min.js') }}"></script>
-        @livewireScripts
+    @livewire('documentation-main-wrapper', ['menu' => $menu, 'showConfiguration' => $showConfiguration])
+    
+    <script src="{{ mix('/js/app.min.js') }}"></script>
+    @livewireScripts
 </body>
 
 </html>

@@ -23,6 +23,7 @@ class DocumentationMenu extends Component
     public function setActive($target, $active)
     {
         $this->emit('child-event');
+        $this->emit('hideConfiguration');
         $this->emit('parent-active-menu-item-event', $target, $active);
     }
 }
