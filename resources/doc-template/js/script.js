@@ -1,3 +1,6 @@
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
+
 $(document).ready(function(){
     var elements = [];
 
@@ -31,6 +34,20 @@ $(document).ready(function(){
     });
 
     window.addEventListener('send-entry-error', event => {
-        alert(event.detail.error);
+        Toastify({
+            text: event.detail.error,
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(180deg, rgba(255,118,118,1) 96%, rgba(255,193,105,1) 100%)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+        // alert(event.detail.error);
     });
 });

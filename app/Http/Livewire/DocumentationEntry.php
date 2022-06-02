@@ -6,6 +6,7 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use Livewire\Component;
 
@@ -59,10 +60,10 @@ class DocumentationEntry extends Component
             $stringResponse = $e->getResponse()->getBody()->getContents();
             $converted = $this->convertoToUTF8($stringResponse);
             $this->entry["response"] = $this->formatJsonString($converted);
+        } catch (ConnectException $ex) {
+            $this->dispatchBrowserEvent('send-entry-error', ['error' => "Hubo un error en la conexión del servidor. Favor contactar al administrador"]);
         } catch (Exception $ex) {
-            $this->error = $ex->getMessage();
-            $this->dispatchBrowserEvent('send-entry-error', ['error' => $this->error]);
-            // $this->emitSelf('sendEntryError', $this->error);
+            $this->dispatchBrowserEvent('send-entry-error', ['error' => $ex->getMessage()]);
         }
     }
 
